@@ -1,110 +1,194 @@
-/* ─ Général ─────────────────────────────────────── */
+/* RESET GLOBAL */
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
+/* PAGE BACKGROUND */
 body {
   font-family: Arial, sans-serif;
-  background: #f0f4f8;
-  color: #333;
+  color: #1f2937;
+  line-height: 1.6;
+
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.65), rgba(15, 23, 42, 0.65)),
+    url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
-/* ─ En-tête ─────────────────────────────────────── */
+/* HEADER */
 header {
-  background: #1f4e79;
+  background: rgba(31, 78, 121, 0.92);
   color: white;
   text-align: center;
-  padding: 40px 20px;
-}
-header h1 {
-  font-size: 2.2em;
-}
-header p {
-  opacity: 0.8;
-  margin-top: 8px;
+  padding: 45px 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
 }
 
-/* ─ Mise en page principale ─────────────────────── */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 8px;
+}
+
+header p {
+  font-size: 1rem;
+  opacity: 0.95;
+}
+
+/* MAIN LAYOUT */
 main {
-  display: flex;
-  gap: 30px;
-  max-width: 1100px;
-  margin: 30px auto;
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  gap: 35px;
+  max-width: 1150px;
+  margin: 35px auto;
   padding: 0 20px;
 }
-#zone-formulaire {
-  flex: 0 0 360px;
-} /* Largeur fixe */
-#zone-articles {
-  flex: 1;
-} /* Prend le reste */
 
-/* ─ Formulaire ──────────────────────────────────── */
+/* FORM CARD */
 #zone-formulaire {
-  background: white;
-  padding: 25px;
-  border-radius: 12px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.95);
+  padding: 28px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+  height: fit-content;
+  backdrop-filter: blur(5px);
 }
+
+#zone-formulaire h2,
+#zone-articles h2 {
+  font-size: 1.7rem;
+  color: #0f3d68;
+  margin-bottom: 15px;
+}
+
+/* FORM */
 .champ {
   margin-bottom: 15px;
 }
-.champ label {
+
+label {
   display: block;
   font-weight: bold;
-  margin-bottom: 5px;
-  color: #1f4e79;
+  color: #0f3d68;
+  margin-bottom: 6px;
 }
-.champ input,
-.champ textarea {
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-}
-button[type="submit"] {
+
+input,
+textarea {
   width: 100%;
   padding: 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 1rem;
+  background: #ffffff;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+  border-color: #1f4e79;
+  box-shadow: 0 0 0 3px rgba(31, 78, 121, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 13px;
   background: #1f4e79;
   color: white;
   border: none;
-  border-radius: 6px;
-  font-size: 16px;
+  border-radius: 8px;
+  font-size: 1rem;
   cursor: pointer;
-}
-button[type="submit"]:hover {
-  background: #2e75b6;
+  margin-top: 8px;
+  transition: 0.3s;
 }
 
-/* ─ Cartes de voyage ────────────────────────────── */
-.carte-voyage {
-  background: white;
-  border-radius: 12px;
-  padding: 20px;
-  margin-bottom: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+button:hover {
+  background: #153a5c;
+  transform: translateY(-2px);
 }
+
+#message-retour {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* ARTICLES AREA */
+#zone-articles {
+  color: white;
+}
+
+#zone-articles h2 {
+  color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+/* TRAVEL CARD */
+.carte-voyage {
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2937;
+  padding: 24px;
+  margin-bottom: 22px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.22);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+}
+
+.carte-voyage:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+}
+
 .carte-entete {
   display: flex;
   align-items: center;
   gap: 15px;
   margin-bottom: 12px;
 }
+
 .emoji {
-  font-size: 2.5em;
+  font-size: 2.2rem;
+  min-width: 45px;
+  text-align: center;
 }
-.carte-entete h3 {
-  font-size: 1.2em;
-  color: #1f4e79;
+
+.carte-voyage h3 {
+  color: #0f3d68;
+  font-size: 1.3rem;
 }
+
 .date {
-  font-size: 0.85em;
-  color: #888;
-  margin-top: 3px;
+  color: #64748b;
+  font-size: 0.9rem;
 }
+
 .recit {
-  line-height: 1.7;
-  color: #555;
+  margin-top: 12px;
+  font-size: 1rem;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  color: white;
+  padding: 20px;
+  background: rgba(15, 23, 42, 0.75);
+  margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 850px) {
+  main {
+    grid-template-columns: 1fr;
+  }
+
+  header h1 {
+    font-size: 2rem;
+  }
 }
