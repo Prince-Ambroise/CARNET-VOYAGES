@@ -7,7 +7,7 @@ $password = '';             // mot de passe vide par défaut sous Laragon
 
 try {
     // PDO = l'outil PHP pour parler à MySQL de façon sécurisée
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 } catch (PDOException $e) {
     // Si la connexion échoue, on renvoie une erreur en JSON

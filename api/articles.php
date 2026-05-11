@@ -4,7 +4,7 @@ require_once 'db.php';
 
 // On dit au navigateur que la réponse sera du JSON
 header('Content-Type: application/json; charset=utf-8');
-// On autorise les requêtes depuis le même serveur (CORS)
+// On autorise les requêtes depuis le même serveur ()
 header('Access-Control-Allow-Origin: *');
 
 // On regarde quelle méthode HTTP a été utilisée (GET ou POST)
